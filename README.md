@@ -12,7 +12,13 @@ Here is one example of a flight on spring wheat conducted by the PhD candidate M
 
 ## Usage 
 
-You can install the shiny app directly from this GitHub repository or access the link to use it: 
+You can use the shiny app directly from this GitHub repository:
+
+```
+runGitHub('Lachowiec-Lab','FlightCheck', ref="main")
+```
+
+You can also access the ShinyApps link: https://correrfh.shinyapps.io/FlightCheck/
 
 FlightCheck is very simple to use! Select the folder containing all the images from your flight and give a certain extension for the image data. If you have multispectral information, you can send just one band to FlighCheck. For example, for Micasense sensors, the files end in `*_X.tif`, where `X` is one of the multiple bands (the wildcard `*` means anything before `_`). So, if you want to use just the first band in the software, you can use `*1.tif`.
 
