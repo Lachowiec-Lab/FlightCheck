@@ -15,7 +15,7 @@ Here is one example of a flight on spring wheat conducted by the PhD candidate M
 You can use the shiny app directly from this GitHub repository:
 
 ```
-runGitHub('Lachowiec-Lab','FlightCheck', ref="main")
+runGitHub('FlightCheck','Lachowiec-Lab', ref="main")
 ```
 
 You can also access the ShinyApps link: https://correrfh.shinyapps.io/FlightCheck/
