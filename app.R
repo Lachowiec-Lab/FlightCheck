@@ -1,11 +1,4 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+#######Load packages #######
 
 renv::load("./")
 library("shiny")
@@ -14,7 +7,8 @@ library("tidyverse")
 library("exifr")
 library("leaflet")
 
-# Define UI for application that draws a histogram
+####### UI  #######
+
 ui <- fluidPage(
   
   # Application title
@@ -34,7 +28,7 @@ ui <- fluidPage(
   )
 )
 
-# Define server logic required to draw a histogram
+####### Server  #######
 server <- function(input, output) {
   
   volumes = getVolumes()()
@@ -68,5 +62,5 @@ server <- function(input, output) {
   })
 }
 
-# Run the application 
+####### RUN !!!  #######
 shinyApp(ui = ui, server = server)
