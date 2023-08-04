@@ -1,12 +1,11 @@
 #######Load packages #######
 
-require("renv")
-load("./")
-require("shiny")
-require("shinyFiles")
-require("tidyverse")
-require("exifr")
-require("leaflet")
+library("shiny")
+library("shinyFiles")
+library("dplyr")
+library("exifr")
+library("leaflet")
+library("rsconnect")
 
 ####### UI  #######
 
