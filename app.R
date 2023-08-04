@@ -1,11 +1,12 @@
 #######Load packages #######
 
-renv::load("./")
-library("shiny")
-library("shinyFiles")
-library("tidyverse")
-library("exifr")
-library("leaflet")
+require("renv")
+load("./")
+require("shiny")
+require("shinyFiles")
+require("tidyverse")
+require("exifr")
+require("leaflet")
 
 ####### UI  #######
 
