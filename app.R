@@ -5,6 +5,7 @@ library("shinyFiles")
 library("dplyr")
 library("exifr")
 library("leaflet")
+library("tm")
 library("rsconnect")
 
 ####### UI  #######
@@ -17,8 +18,7 @@ ui <- fluidPage(
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-      shinyDirButton("dir", "Please select an input directory", "Upload"),
-      textInput("extension", "Extension", "*1.tif"), width = 4
+      fileInput("dir", "Please select an input directory", multiple = TRUE, ),
     ),
     
     # Show a plot of the generated distribution
@@ -31,28 +31,16 @@ ui <- fluidPage(
 ####### Server  #######
 server <- function(input, output) {
   
-  volumes = getVolumes()()
-  shinyDirChoose(
-    input,
-    'dir',
-    roots = volumes 
-  )
-  
-  #path <- reactive({
-  #  return(file.path(paste((input$dir$path), collapse = .Platform$file.sep)))
-  #})
-  
-  path <- renderText({parseDirPath(roots = volumes, input$dir)})
-  
-  ext <- renderText({ input$extension })
+  # Get path of uploaded files
+  list_of_files <- eventReactive(input$dir, {
+
+    return(as.character(input$dir$datapath))
+  })
   
   output$leafCoord <- renderLeaflet({
     
-    # Find files in folder - with certain extension
-    droneImages <- list.files(path = path(), pattern = ext(), recursive = TRUE,  full.names = T)
-
     # Read metadata of drone images
-    exifr::read_exif(path = droneImages) %>%
+    exifr::read_exif(path = list_of_files()) %>%
       select(SourceFile,
              GPSLongitude, GPSLatitude) %>% 
       leaflet() %>% 
