@@ -20,6 +20,7 @@ runGitHub('FlightCheck','Lachowiec-Lab', ref="main")
 
 FlightCheck is very simple to use! Select the folder containing all the images from your flight and give a certain extension for the image data. If you have multispectral information, you can send just one band to FlighCheck. For example, for Micasense sensors, the files end in `*_X.tif`, where `X` is one of the multiple bands (the wildcard `*` means anything before `_`). So, if you want to use just the first band in the software, you can use `*1.tif`.
 
+You can access the application on [shinyapps](https://correrfh.shinyapps.io/flightcheck/). The difference is that you need to select files instead of folders. Because of that we also removed the filter for file extension.
 
 ### Contact
 
